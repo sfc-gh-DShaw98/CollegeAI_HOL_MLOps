@@ -17,7 +17,7 @@ Below, we outline the three major phases in this HOL. Each phase builds on the p
 - [🧹 Cleanup](#-cleanup--cost-stewardship-procedures)
 
 ---
-
+<a name="hands-on-lab-overview"></a>
 ## 🛠️ Hands-On Lab Overview
 
 In this hands-on lab, you’ll step into the shoes of an **MLOps engineer** tasked with **operationalizing a predictive model trained in Amazon SageMaker—but all the customer data lives in Snowflake**. Instead of rewriting model logic or deploying a real-time endpoint, you’ll register the model in Snowflake’s Model Registry and run batch inference at scale using warehouse compute.
@@ -60,7 +60,7 @@ In this hands-on lab, you’ll step into the shoes of an **MLOps engineer** task
 - [Author & Support](#-author--support)
 
 ---
-
+<a name="why-this-matters"></a>
 ## 📌 Why this Matters
 
 - **Centralized governance:** Register and version SageMaker models in Snowflake
@@ -70,7 +70,7 @@ In this hands-on lab, you’ll step into the shoes of an **MLOps engineer** task
 - **Production-grade monitoring:** Detect drift, retrain, and promote models—all in Snowflake
 
 ---
-
+<a name="customer-discovery-questions"></a>
 ## 🧭 Customer Discovery Questions
 
 Provide **5 to 6 open-ended questions** for customer conversations related to this HOL.
@@ -84,7 +84,7 @@ Provide **5 to 6 open-ended questions** for customer conversations related to th
 - "How do you manage model promotion that is creating a new model version to replace an older one in a production pipeline?"
 
 ---
-
+<a name="repository-structure"></a>
 ## 📂 Repository Structure
 
 ```bash
@@ -102,7 +102,7 @@ Provide **5 to 6 open-ended questions** for customer conversations related to th
 │   └── faq.md
 ```
 ---
-
+<a name="prerequisites--setup-details"></a>
 ## ✅ Prerequisites & Setup Details
 
 **Snowflake Environment:**
@@ -137,7 +137,7 @@ Provide **5 to 6 open-ended questions** for customer conversations related to th
 - **Phase 3:** Snowflake Notebooks with Container Runtime (Snowflake ML Runtime CPU 1.0)
 
 ---
-
+<a name="estimated-lab-timeline"></a>
 ## ⏲️ Estimated Lab Timeline
 
 Provide a brief agenda to help SEs understand pacing:
@@ -146,6 +146,7 @@ Provide a brief agenda to help SEs understand pacing:
 - **Phase 2 (Model obserability, monitor drift, & generate alerts):** ~30 min
 - **Phase 3 (End-to-end model retraining, model explainability, model promotion & cleanup):** ~30 min
 
+<a name="lab-completion-requirements"></a>
 ## Lab Completion Requirements
 
 To receive credit for completing this HOL, you must successfully complete all DORA evaluations:
@@ -160,7 +161,7 @@ These are automatically tracked through **DORA grading functions embedded** in e
 Check the status of your DORA evaluations using this [Tableau report](https://us-east-1.online.tableau.com/vizportal/api/saml/login?dest=%2F%23%2Fsite%2Fsnowflake%2Fviews%2FSEUniversity%2FCollegeCertifications%3F%253Aiid%3D1&target_site=snowflake&forceSitePick=false&sendPodInfo=false&authSetting=&siteLuid=&embedded=false&idpConfigurationId=)
 
 ---
-
+<a name="placeholder--naming-conventions"></a>
 ## 🔖 Placeholder & Naming Conventions
 
 - Databases/schemas: `college-of-ai`/`public`
@@ -169,7 +170,7 @@ Check the status of your DORA evaluations using this [Tableau report](https://us
 - Secrets management: Safely store credentials and API keys (never commit to GitHub).
 
 ---
-
+<a name="troubleshooting--frequently-asked-questions-faq"></a>
 ## ⚠️ Troubleshooting & Frequently Asked Questions (FAQ)
 
 These are the most common blockers and questions SEs encounter when completing the College of AI: MLOps with SageMaker & Snowflake Model Registry HOL.
@@ -273,7 +274,7 @@ These are the most common blockers and questions SEs encounter when completing t
   - **Fix:** Use the official GitHub repository or PDFs distributed by the enablement team.
 
 ---
-
+<a name="cleanup--cost-stewardship-procedures"></a>
 ## 🧹 Cleanup & Cost-Stewardship Procedures
 
 🗑 **Cleanup Instructions:**
@@ -283,7 +284,7 @@ These are the most common blockers and questions SEs encounter when completing t
 - **Phases 2 & 3:** Run the provided cleanup scripts at the end of each notebook
 
 ---
-
+<a name="links-to-internal-resources--helpful-documents"></a>
 ## 🔗 Links to Internal Resources & Helpful Documents
 
 💡 *For a deeper dive, check out the [50-minute PM-led presentation from the Delivery (PS) Enablement series](https://snowflake.sharepoint.com/sites/PSEnablementHub/SitePages/Delivery-Enablement-Series.aspx?OR=Teams-HL&CT=1707249903650&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMzAxMDUwNzEwMCJ9). It explores Notebooks + Container Runtime in detail, including SPCS internals and practical examples. Highly recommended as a supplement to this HOL.*
@@ -299,7 +300,7 @@ These are the most common blockers and questions SEs encounter when completing t
 - 📚 [Snowflake ML Reference API (v1.8)](https://docs.snowflake.com/en/developer-guide/snowflake-ml/reference)
 
 ---
-
+<a name="author--support"></a>
 ## 👤 Author & Support
 
 **Lab created by:** [Diana Shaw] – [Solution Engineering Enablement Principal]  
