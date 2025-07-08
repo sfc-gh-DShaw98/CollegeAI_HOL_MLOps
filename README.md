@@ -11,10 +11,10 @@ Watch the [8-minute Lab Overview Video](https://drive.google.com/file/d/1_wWRvwZ
 Below, we outline the three major phases in this HOL. Each phase builds on the previous, moving from SageMaker training to full ML lifecycle operations inside Snowflake.
 
 🔽 Jump to:
-- [🛠️ Lab Overview](#hands-on-lab-overview)
-- [📂 Repo Structure](#repository-structure)
-- [⚠️ Troubleshooting](#troubleshooting--frequently-asked-questions-faq)
-- [🧹 Cleanup](#cleanup--cost-stewardship-procedures)
+- [🛠️ Hands-On Lab Overview](#-hands-on-lab-overview)
+- [📂 Repository Structure](#repository-structure)
+- [⚠️ Troubleshooting & FAQ](#-troubleshooting--frequently-asked-questions-faq)
+- [🧹 Cleanup](#-cleanup--cost-stewardship-procedures)
 
 ---
 
@@ -47,16 +47,17 @@ In this hands-on lab, you’ll step into the shoes of an **MLOps engineer** task
 
 ## 📖 Table of Contents
 
-- [Why this Matters](#why-this-matters)
-- [Suggested Discovery Questions](#suggested-discovery-questions)
+- [Why this Matters](#-why-this-matters)
+- [Customer Discovery Questions](#-customer-discovery-questions)
 - [Repository Structure](#repository-structure)
-- [Prerequisites & Setup Details](#prerequisites--setup-details)
-- [Estimated Lab Timeline](#estimated-lab-timeline)
-- [Placeholder & Naming Conventions](#placeholder--naming-conventions)
-- [Troubleshooting & FAQ](#troubleshooting--faq)
-- [Cleanup & Cost-Stewardship Procedures](#cleanup--cost-stewardship-procedures)
-- [Advanced Concepts (Salted in Training)](#advanced-concepts-salted-in-training)
-- [Links to Internal Resources & Helpful Documents](#links-to-internal-resources--helpful-documents)
+- [Prerequisites & Setup Details](#-prerequisites--setup-details)
+- [Estimated Lab Timeline](#-estimated-lab-timeline)
+- [Lab Completion Requirements](#lab-completion-requirements)
+- [Placeholder & Naming Conventions](#-placeholder--naming-conventions)
+- [Troubleshooting & FAQ](#-troubleshooting--frequently-asked-questions-faq)
+- [Cleanup & Cost-Stewardship Procedures](#-cleanup--cost-stewardship-procedures)
+- [Links to Internal Resources & Helpful Documents](#-links-to-internal-resources--helpful-documents)
+- [Author & Support](#-author--support)
 
 ---
 
