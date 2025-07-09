@@ -2,8 +2,14 @@
 
 This guide walks you through setting up your Snowflake environment and first-time access to Amazon SageMaker Studio for the **Model Development & SageMaker Integration** phase.  Replace items in **<angle brackets>** to adapt the template for your own hands-on lab (HOL).
 
----
+🔽 Jump to:
+- [🛠️ Snowflake Setup](#snowflake-setup)
+- [🛠️ SageMaker Setup](#sagemaker-setup)
+- [📂 Repository Structure](#repository-structure)
+- [⚠️ Troubleshooting & FAQ](#troubleshooting--frequently-asked-questions-faq)
 
+---
+<a name="Snowflake Setup"></a>
 ## Step 1.1: Snowflake Setup
 In this HOL, you'll configure a secure Snowflake environment for MLOps workflows with SageMaker.
 
@@ -185,6 +191,8 @@ Use `mlops_user` in the SageMaker environment for:
 - Phase 1 - Step 1.3: Secure, programmatic connection from SageMaker to Snowflake for model operations. (Configured in connections.toml — avoids SE account network policy risks)
 🚫 There is no need to log into Snowsight with `mlops_user`.
 
+---
+<a name="SageMaker Setup"></a>
 ## 1.2 AWS SageMaker Access
 This guide walks you through using a pre-provisioned for you in the [AWS SE-Sandbox](https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2), *not the SE-CAPSTONE-SANDBOX*. If you do not have access, please [complete a LIFT ticket](https://lift.snowflake.com/lift?id=sc_cat_item&sys_id=de9fc362db7dd4102f1c9eb6db9619ed) to request it. Once access is granted, proceed with the following steps.
 
@@ -193,7 +201,7 @@ This guide walks you through using a pre-provisioned for you in the [AWS SE-Sand
 2. Navigate to AWS SE-Sandbox application
 3. Click on SE-Sandbox and select the Contributor role
 4. Select the US West (Oregon) region from the top-right dropdown menu
-html<br><img src="/images/sagemaker/SE_Sandbox.jpg" alt="SE Sandbox" width="650"/>
+<br><img src="/images/sagemaker/SE_Sandbox.jpg" alt="SE Sandbox" width="650"/>
 
 **🚨 Important: SageMaker JupyterLab Usage Policy**
 Before you begin setting up your SageMaker environment, please be aware:
@@ -208,21 +216,21 @@ Before you begin setting up your SageMaker environment, please be aware:
 1. In the AWS Management Console, search for "SageMaker" and select it
 2. In the SageMaker dashboard, click on Studio in the left navigation panel
 3. Click on Launch SageMaker Studio
-html<br><img src="/images/sagemaker/SageMaker.jpg" alt="SageMaker Studio" width="650"/>
+<br><img src="/images/sagemaker/SageMaker.jpg" alt="SageMaker Studio" width="650"/>
 4. Once the console loads, click the orange button Open Studio
-html<br><img src="/images/sagemaker/Open_Studio.jpg" alt="Open Studio" width="650"/>
+<br><img src="/images/sagemaker/Open_Studio.jpg" alt="Open Studio" width="650"/>
 
 ### 1.2.3 Create JupyterLab Instance
 1. In the Studio launcher, select JupyterLab spaces
-html<br><img src="/images/sagemaker/JupyterLab.jpg" alt="JupyterLab space" width="650"/>
+<br><img src="/images/sagemaker/JupyterLab.jpg" alt="JupyterLab space" width="650"/>
 2. Click + Create JupyterLab space
 3. Name your space something like college-of-ai-<your name>
 4. For "Environment", select **SageMaker Distribution 2.4.2**
 5. For "Instance type", select ml.t3.medium
 6. Click Create space
-html<br><img src="/images/sagemaker/SageMakerDistribution.jpg" alt="SageMaker Distribution" width="650"/>
+<br><img src="/images/sagemaker/SageMakerDistribution.jpg" alt="SageMaker Distribution" width="650"/>
 7. Once the space is ready, click Open JupyterLab
-html<br><img src="/images/sagemaker/Stop_Delete.jpg" alt="Open JupyterLab" width="650"/>
+<br><img src="/images/sagemaker/Stop_Delete.jpg" alt="Open JupyterLab" width="650"/>
    
 **IMPORTANT: Always STOP your JupyterLab space when not actively working and DELETE it after completing the lab to avoid unnecessary charges.**
 
@@ -231,15 +239,15 @@ html<br><img src="/images/sagemaker/Stop_Delete.jpg" alt="Open JupyterLab" width
 ### 1.2.4 Upload Required Files
 1. In JupyterLab, click the upload icon in the left sidebar
 2. Upload the following files:
-    - [connections.toml](https://github.com/sfc-gh-DShaw98/SageMaker-to-Snowflake-Batch-Inference-Lab/blob/main/config/connections.toml) (update with your Snowflake credentials)
+    - [connections.toml](/config/connections.toml) (update with your Snowflake credentials)
     - rsa_private_key.pem (your private key file)
-    - [College-of-AI-MLOPsExerciseNotebook.ipynb](https://github.com/sfc-gh-DShaw98/SageMaker-to-Snowflake-Batch-Inference-Lab/blob/main/notebooks/College-of-AI-MLOPsExerciseNotebook.ipynb) (provided notebook)
+    - [College-of-AI-MLOPsExerciseNotebook.ipynb](/notebooks/College-of-AI-MLOPsExerciseNotebook.ipynb) (provided notebook)
     - [Mortgage_Data.csv](https://drive.google.com/file/d/1fsL0y5HRNcswzgvTwgQJK9dfL6bCznGg/view?usp=sharing) (if needed for local processing)
 3. Verify the uploaded files appear in your JupyterLab file browser
 
 ### 1.2.5 Configure Snowflake Connection
-1. Open the [connections.toml](https://github.com/sfc-gh-DShaw98/SageMaker-to-Snowflake-Batch-Inference-Lab/blob/main/config/connections.toml) file in JupyterLab
-html<br><img src="/images/sagemaker/ConnectionsTOML.jpg" alt="Connections TOML" width="650"/>
+1. Open the [connections.toml](/config/connections.toml) file in JupyterLab
+<br><img src="/images/sagemaker/ConnectionsTOML.jpg" alt="Connections file" width="650"/>
 2. Update the file with your Snowflake connection details:
 ```toml
 [connections.snowflake]
@@ -253,11 +261,158 @@ private_key_path = "rsa_private_key.pem"
 ```
 3. Save the file
 
+---
+<a name="Foundation Knowledge"></a>
+## Understanding Binary Classification Models
 
+Before diving into building a model, let’s quickly walk through what we’re solving and how we’ll prepare the data.
 
+### 🏦 Scenario: Mortgage Approval Prediction
+
+You’re working with **historical mortgage application data**.  
+Each row represents an individual application, and your task is to **predict whether the mortgage was approved or denied**:
+
+| Label | Meaning |
+|-------|---------|
+| **`MORTGAGERESPONSE = 1`** | Approved |
+| **`MORTGAGERESPONSE = 0`** | Denied |
+
+This is a classic **binary classification** problem: only two possible outcomes — **approved or denied**.
+
+### 📊 Why Logistic-Style (Tree-Based) Models?
+
+We’ll train a **binary classifier** using **`XGBoostClassifier`**, a tree-based model widely used in production. XGBoost is great for binary decisions because it:
+- Output a **probability between 0 and 1**
+- Allow you to **set thresholds** (e.g., approve if probability > 0.5)
+- Capture non-linear relationships between input feature data and output classification
+- Works well for use cases like:
+   - Fraud detection
+   - Credit scoring
+   - Loan or insurance approvals
+   - Customer churn prediction
+
+### 🔍 Features We’ll Use
+
+| Type | Example Features |
+|------|------------------|
+| **Numeric** | `APPLICANT_INCOME_000S`, `LOAN_AMOUNT_000S` |
+| **Categorical** | `LOAN_TYPE_NAME`, `LOAN_PURPOSE_NAME`, `COUNTY_NAME` |
+
+These features will be cleaned and transformed before model training.
+
+### 💡 What Is One-Hot Encoding?
+
+ML models like XGBoost **can’t interpret text directly**. That means we need to convert categorical columns like "`FHA`" or "`Conventional`" into a numeric format.
+That’s where one-hot encoding comes in. 
+Let’s say your original data looks like this:
+
+|`LOAN_TYPE_NAME`|
+|----|
+|Conventional|
+|FHA-insured|
+|VA-guaranteed|
+
+One-hot encoding transforms it into **separate binary columns**, like so:
+
+| LOAN_TYPE_NAME_Conventional | LOAN_TYPE_NAME_FHA | LOAN_TYPE_NAME_VA |
+|----------------------------:|-------------------:|------------------:|
+| 1 | 0 | 0 |
+| 0 | 1 | 0 |
+| 0 | 0 | 1 |
+
+This prevents the model from treating category values as ranked numbers (e.g., “FHA” > “VA”).
+
+> **Tip:** Snowflake ML’s built-in `OneHotEncoder` can do this directly on Snowpark DataFrames—ideal for production pipelines. See the [Snowflake ML OneHotEncoder docs](https://docs.snowflake.com/en/user-guide/snowpark-ml).
+
+### 🔬 Evaluating Your Model
+
+After training, evaluate performance on **unseen validation data**.
+
+#### 📊 Classification Report
+
+You’ll generate a report with these metrics:
+
+| Metric | What it tells you | Why it matters |
+|--------|------------------|----------------|
+| **Precision** | Of all predicted approvals, how many were actually approved? | High precision ⇒ few risky loans get approved. |
+| **Recall** | Of all actual approvals, how many did the model catch? | High recall ⇒ few good applicants are missed. |
+| **F1-Score** | Harmonic mean of precision & recall | Balances false positives and false negatives. |
+| **Support** | Number of actual instances per class | Helps interpret the other metrics. |
+
+#### 🧮 Confusion Matrix
+
+A grid showing correct vs. incorrect predictions.
+
+| | **Predicted: Denied** | **Predicted: Approved** |
+|---|---|---|
+| **Actual: Denied** | ✅ **True Negatives** (14 219) | ❌ **False Positives** (371) |
+| **Actual: Approved** | ❌ **False Negatives** (211) | ✅ **True Positives** (48 348) |
+
+* **True Negatives** – correctly denied risky apps  
+* **False Positives** – incorrectly approved risky apps  
+* **False Negatives** – missed good applicants  
+* **True Positives** – correctly approved good applicants  
+
+These numbers reveal whether the model leans toward over-approving or over-denying.
+
+### 🧳 Snowflake Model Registry + Batch Inference
+
+#### ✅ Model Registry
+
+* Register models by **name & version**  
+* Track dependencies / schemas  
+* Call via `model.run()` (Python) or `PREDICT_PROBA()` (SQL)  
+* Manage version promotion to production  
+
+#### 📈 Batch Inference
+
+Enterprise workflows often score data in bulk:
+
+* Nightly loan-approval scoring  
+* Weekly churn predictions  
+* End-of-day fraud risk analysis  
+
+In this HOL you will:
+
+| Scoring Type | Purpose |
+|--------------|---------|
+| **Weekly batch** (Weeks 1–5) | Simulate a production job processing new records each week |
+| **Full-table scoring** | Back-test, prep ML Observability, feed dashboards |
+
+Both predicted labels and **prediction confidence** (`PREDICTED_SCORE`) are stored in Snowflake.
+
+#### Why Confidence Scores Matter
+
+* Visualize score distributions by segment  
+* Detect data / concept drift  
+* Track precision, recall, F1, ROC AUC trends  
+* Power dashboards & alerting systems  
+
+---
+<a name="Next Step"></a>
 ### 1.2.6 Next Steps
 Now that your Snowflake environment is set up and you have access to SageMaker, you're ready to proceed with [**Phase 1: Model Development in SageMaker - Initial Model Registration**](https://github.com/sfc-gh-DShaw98/SageMaker-to-Snowflake-Batch-Inference-Lab/blob/main/lab_instructions/phase1_model_dev.md).
 
+## 📘 What You’ll Do in the SageMaker Notebook
+
+1. **Load** historical data from S3.  
+2. **Pre-process** (drop nulls, one-hot encode).  
+3. **Train** an XGBoost binary classifier.  
+4. **Evaluate** with precision/recall & confusion matrix.  
+5. **Save** the model locally (`.pkl`).  
+6. **Register** it in the Snowflake Model Registry (`log_model()`).  
+7. **Run batch inference**  
+   * Week-by-week (Weeks 1–5)  
+   * Full table  
+8. **Write predictions** back to Snowflake.  
+9. Complete DORA evaluations **SEAI50** & **SEAI51** to confirm registration and inference.
+
+> ✅ No APIs, no endpoints—just batch ML using SQL + Python inside Snowflake.
+
+You’re now ready to begin developing a predictive model in **SageMaker**!
+
+---
+<a name="Troubleshooting"></a>
 ## Troubleshooting
 ### Common Snowflake Issues
 - **Permission errors:** Verify that the aicollege role has all necessary privileges
