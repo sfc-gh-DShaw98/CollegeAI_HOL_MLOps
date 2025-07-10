@@ -6,7 +6,7 @@ This guide walks you through setting up your Snowflake environment and first-tim
 - [🛠️ Snowflake Setup](#snowflake-setup)
 - [🛠️ SageMaker Setup](#sagemaker-setup)
 - [📂 Foundational Knowledge](#foundation-knowledge)
-- [Next Steps](#next-steps)
+- [➡️ Next Steps](#next-steps)
 - [⚠️ Troubleshooting](#troubleshooting)
 
 ---
