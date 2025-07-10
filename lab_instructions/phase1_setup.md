@@ -5,11 +5,12 @@ This guide walks you through setting up your Snowflake environment and first-tim
 🔽 Jump to:
 - [🛠️ Snowflake Setup](#snowflake-setup)
 - [🛠️ SageMaker Setup](#sagemaker-setup)
-- [📂 Repository Structure](#repository-structure)
-- [⚠️ Troubleshooting & FAQ](#troubleshooting--frequently-asked-questions-faq)
+- [📂 Foundational Knowledge](#foundation-knowledge)
+- [Next Steps](#next-steps)
+- [⚠️ Troubleshooting](#troubleshooting)
 
 ---
-<a name="Snowflake Setup"></a>
+<a name="snowflake-setup"></a>
 ## Step 1.1: Snowflake Setup
 In this HOL, you'll configure a secure Snowflake environment for MLOps workflows with SageMaker.
 
@@ -192,7 +193,7 @@ Use `mlops_user` in the SageMaker environment for:
 🚫 There is no need to log into Snowsight with `mlops_user`.
 
 ---
-<a name="SageMaker Setup"></a>
+<a name="sagemaker-setup"></a>
 ## 1.2 AWS SageMaker Access
 This guide walks you through using a pre-provisioned for you in the [AWS SE-Sandbox](https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2), *not the SE-CAPSTONE-SANDBOX*. If you do not have access, please [complete a LIFT ticket](https://lift.snowflake.com/lift?id=sc_cat_item&sys_id=de9fc362db7dd4102f1c9eb6db9619ed) to request it. Once access is granted, proceed with the following steps.
 
@@ -262,7 +263,7 @@ private_key_path = "rsa_private_key.pem"
 3. Save the file
 
 ---
-<a name="Foundation Knowledge"></a>
+<a name="foundation-knowledge"></a>
 ## Understanding Binary Classification Models
 
 Before diving into building a model, let’s quickly walk through what we’re solving and how we’ll prepare the data.
@@ -389,7 +390,7 @@ Both predicted labels and **prediction confidence** (`PREDICTED_SCORE`) are stor
 * Power dashboards & alerting systems  
 
 ---
-<a name="Next Step"></a>
+<a name="next-steps"></a>
 ### 1.2.6 Next Steps
 Now that your Snowflake environment is set up and you have access to SageMaker, you're ready to proceed with [**Phase 1: Model Development in SageMaker - Initial Model Registration**](https://github.com/sfc-gh-DShaw98/SageMaker-to-Snowflake-Batch-Inference-Lab/blob/main/lab_instructions/phase1_model_dev.md).
 
@@ -412,7 +413,7 @@ Now that your Snowflake environment is set up and you have access to SageMaker, 
 You’re now ready to begin developing a predictive model in **SageMaker**!
 
 ---
-<a name="Troubleshooting"></a>
+<a name="troubleshooting"></a>
 ## Troubleshooting
 ### Common Snowflake Issues
 - **Permission errors:** Verify that the aicollege role has all necessary privileges
